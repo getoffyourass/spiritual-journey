@@ -1,0 +1,43 @@
+.shop-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+  
+  .shop-item {
+    background: white;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    transition: transform var(--transition-speed) ease;
+  }
+  
+  .shop-item:hover {
+    transform: translateY(-4px);
+  }
+  
+  .shop-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .shop-item-content {
+    padding: var(--spacing-md);
+  }
+  
+  .shop-item-price {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--accent-color);
+    font-weight: 600;
+  }
+  
+  .gem-icon {
+    width: 20px;
+    height: 20px;
+  }
