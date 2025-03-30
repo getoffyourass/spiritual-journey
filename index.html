@@ -7,13 +7,13 @@
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <!-- Add React Router -->
     <script src="https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"></script>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background: #f5f5f5;
         }
 
         .app {
@@ -35,6 +35,40 @@
         h1 {
             color: #4A90E2;
         }
+
+        .religion-selector {
+            margin: 2rem auto;
+            max-width: 600px;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .religion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .religion-card {
+            padding: 1rem;
+            border: 2px solid #4A90E2;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .religion-card:hover {
+            background: #4A90E2;
+            color: white;
+        }
+
+        .selected {
+            background: #4A90E2;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -42,12 +76,47 @@
     
     <script type="text/babel">
         const { BrowserRouter, Route, Link, Switch } = ReactRouterDOM;
+        const { useState } = React;
 
         function Home() {
+            const [selectedReligion, setSelectedReligion] = useState(null);
+            
+            const religions = [
+                "Buddhism",
+                "Christianity",
+                "Hinduism",
+                "Islam",
+                "Judaism",
+                "Sikhism",
+                "Spiritual",
+                "Other"
+            ];
+
             return (
                 <div className="app">
                     <h1>Welcome to Spiritual Journey</h1>
                     <p>Your path to inner peace begins here.</p>
+                    
+                    <div className="religion-selector">
+                        <h2>Choose Your Faith Path</h2>
+                        <div className="religion-grid">
+                            {religions.map(religion => (
+                                <div 
+                                    key={religion}
+                                    className={`religion-card ${selectedReligion === religion ? 'selected' : ''}`}
+                                    onClick={() => setSelectedReligion(religion)}
+                                >
+                                    {religion}
+                                </div>
+                            ))}
+                        </div>
+                        {selectedReligion && (
+                            <div style={{marginTop: '2rem'}}>
+                                <p>You selected: {selectedReligion}</p>
+                                <p>Your journey will be customized for {selectedReligion}</p>
+                            </div>
+                        )}
+                    </div>
                 </div>
             );
         }
