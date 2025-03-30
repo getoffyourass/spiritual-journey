@@ -1,3 +1,8 @@
+// Debug logs
+console.log('Script loaded!');
+console.log('React version:', React.version);
+
+// Your App component
 function App() {
     return (
         <div className="app">
