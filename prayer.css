@@ -1,0 +1,35 @@
+.prayer-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .prayer-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .prayer-text {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+  }
+  
+  .prayer-source {
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  
+  .prayer-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+  }
+  
+  .prayer-timer {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
