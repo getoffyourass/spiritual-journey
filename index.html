@@ -9,65 +9,117 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"></script>
     <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --background-color: #ffffff;
+            --card-background: #f8f8f8;
+            --text-color: #333333;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
         }
 
         .app {
-            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
         }
 
         nav {
-            background: #4A90E2;
-            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--background-color);
+            border-bottom: 1px solid #eee;
         }
 
-        nav a {
-            color: white;
-            margin: 0 1rem;
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
             text-decoration: none;
         }
 
-        h1 {
-            color: #4A90E2;
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
         }
 
-        .religion-selector {
-            margin: 2rem auto;
-            max-width: 600px;
+        .welcome-card {
+            background: var(--card-background);
+            border-radius: 12px;
             padding: 2rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         .religion-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 2rem;
         }
 
         .religion-card {
-            padding: 1rem;
-            border: 2px solid #4A90E2;
-            border-radius: 4px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            border: 1px solid #eee;
+            text-align: center;
         }
 
         .religion-card:hover {
-            background: #4A90E2;
-            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .selected {
-            background: #4A90E2;
+            background: var(--primary-color);
             color: white;
+            border-color: var(--primary-color);
+        }
+
+        .daily-section {
+            margin-top: 3rem;
+        }
+
+        .daily-card {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            background: #eee;
+            border-radius: 100px;
+            height: 8px;
+            margin: 2rem 0;
+        }
+
+        .progress-fill {
+            background: var(--primary-color);
+            height: 100%;
+            border-radius: 100px;
+            width: 0%;
+            transition: width 0.3s ease;
         }
     </style>
 </head>
@@ -94,11 +146,13 @@
 
             return (
                 <div className="app">
-                    <h1>Welcome to Spiritual Journey</h1>
-                    <p>Your path to inner peace begins here.</p>
+                    <div className="welcome-card">
+                        <h1>Welcome to Your Spiritual Journey</h1>
+                        <p>Choose your faith path to begin your daily practice</p>
+                    </div>
                     
-                    <div className="religion-selector">
-                        <h2>Choose Your Faith Path</h2>
+                    <div className="daily-section">
+                        <h2>Select Your Faith</h2>
                         <div className="religion-grid">
                             {religions.map(religion => (
                                 <div 
@@ -111,30 +165,15 @@
                             ))}
                         </div>
                         {selectedReligion && (
-                            <div style={{marginTop: '2rem'}}>
-                                <p>You selected: {selectedReligion}</p>
-                                <p>Your journey will be customized for {selectedReligion}</p>
+                            <div className="daily-card">
+                                <h3>Your {selectedReligion} Journey</h3>
+                                <p>Daily practices customized for your faith</p>
+                                <div className="progress-bar">
+                                    <div className="progress-fill" style={{width: '0%'}}></div>
+                                </div>
                             </div>
                         )}
                     </div>
-                </div>
-            );
-        }
-
-        function Prayer() {
-            return (
-                <div className="app">
-                    <h1>Daily Prayer</h1>
-                    <p>Find peace through prayer.</p>
-                </div>
-            );
-        }
-
-        function Meditation() {
-            return (
-                <div className="app">
-                    <h1>Meditation</h1>
-                    <p>Clear your mind and find inner peace.</p>
                 </div>
             );
         }
@@ -144,15 +183,15 @@
                 <BrowserRouter basename="/spiritual-journey">
                     <div>
                         <nav>
-                            <Link to="/">Home</Link>
-                            <Link to="/prayer">Prayer</Link>
-                            <Link to="/meditation">Meditation</Link>
+                            <Link to="/" className="logo">Spiritual Journey</Link>
+                            <div>
+                                <Link to="/prayer">Prayer</Link>
+                                <Link to="/meditation">Meditation</Link>
+                            </div>
                         </nav>
 
                         <Switch>
                             <Route exact path="/" component={Home} />
-                            <Route path="/prayer" component={Prayer} />
-                            <Route path="/meditation" component={Meditation} />
                         </Switch>
                     </div>
                 </BrowserRouter>
