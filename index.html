@@ -8,12 +8,15 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --primary-color: #1a1a1a;
             --background-color: #ffffff;
             --card-background: #f8f8f8;
             --text-color: #333333;
+            --blue-50: #e6f0ff;
+            --blue-600: #2563eb;
         }
 
         body {
@@ -22,6 +25,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: var(--background-color);
             color: var(--text-color);
+            padding-bottom: 80px; /* Space for fixed navigation */
         }
 
         .app {
@@ -44,13 +48,6 @@
             font-weight: 600;
             color: var(--primary-color);
             text-decoration: none;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-size: 0.9rem;
         }
 
         .welcome-card {
@@ -96,30 +93,75 @@
             border-color: var(--primary-color);
         }
 
-        .daily-section {
-            margin-top: 3rem;
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem;
         }
 
-        .daily-card {
-            background: var(--card-background);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 1rem 0;
+        .nav-container {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
         }
 
-        .progress-bar {
-            background: #eee;
-            border-radius: 100px;
-            height: 8px;
-            margin: 2rem 0;
-        }
-
-        .progress-fill {
-            background: var(--primary-color);
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 20%;
             height: 100%;
-            border-radius: 100px;
-            width: 0%;
-            transition: width 0.3s ease;
+            padding: 0.25rem;
+            border-radius: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-item.active {
+            background: var(--blue-50);
+        }
+
+        .nav-item.active svg {
+            color: var(--blue-600);
+        }
+
+        .nav-item.active span {
+            color: var(--blue-600);
+        }
+
+        .nav-item span {
+            font-size: 0.75rem;
+            margin-top: 4px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            color: #666;
+        }
+
+        .study-button {
+            position: relative;
+        }
+
+        .study-icon {
+            position: absolute;
+            top: -32px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 56px;
+            height: 56px;
         }
     </style>
 </head>
@@ -129,6 +171,64 @@
     <script type="text/babel">
         const { BrowserRouter, Route, Link, Switch } = ReactRouterDOM;
         const { useState } = React;
+
+        function NavigationMenu({ religion }) {
+            const getTextsLabel = () => {
+                switch(religion) {
+                    case 'Christianity': return 'Bible';
+                    case 'Islam': return 'Quran';
+                    case 'Hinduism': return 'Gita';
+                    case 'Judaism': return 'Torah';
+                    case 'Buddhism': return 'Sutras';
+                    case 'Spiritual': return 'Texts';
+                    default: return 'Texts';
+                }
+            };
+
+            return (
+                <div className="bottom-nav">
+                    <div className="nav-container">
+                        <button className="nav-item active">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-church">
+                                <path d="M10 9h4"/>
+                                <path d="M12 7v5"/>
+                                <path d="M14 22v-4a2 2 0 0 0-4 0v4"/>
+                                <path d="M18 22V5.618a1 1 0 0 0-.553-.894l-4.553-2.277a2 2 0 0 0-1.788 0L6.553 4.724A1 1 0 0 0 6 5.618V22"/>
+                                <path d="m18 7 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.618a1 1 0 0 1 .553-.894L6 7"/>
+                            </svg>
+                            <span>Home</span>
+                        </button>
+                        
+                        <button className="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-compass">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/>
+                            </svg>
+                            <span>Discover</span>
+                        </button>
+                        
+                        <button className="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+                            </svg>
+                            <span>Chat</span>
+                        </button>
+                        
+                        <button className="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bookmark">
+                                <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
+                            </svg>
+                            <span>{getTextsLabel()}</span>
+                        </button>
+                        
+                        <button className="nav-item study-button">
+                            <div className="study-icon">📚</div>
+                            <span>Study</span>
+                        </button>
+                    </div>
+                </div>
+            );
+        }
 
         function Home() {
             const [selectedReligion, setSelectedReligion] = useState(null);
@@ -165,13 +265,13 @@
                             ))}
                         </div>
                         {selectedReligion && (
-                            <div className="daily-card">
-                                <h3>Your {selectedReligion} Journey</h3>
-                                <p>Daily practices customized for your faith</p>
-                                <div className="progress-bar">
-                                    <div className="progress-fill" style={{width: '0%'}}></div>
+                            <>
+                                <div className="daily-card">
+                                    <h3>Your {selectedReligion} Journey</h3>
+                                    <p>Daily practices customized for your faith</p>
                                 </div>
-                            </div>
+                                <NavigationMenu religion={selectedReligion} />
+                            </>
                         )}
                     </div>
                 </div>
@@ -184,10 +284,6 @@
                     <div>
                         <nav>
                             <Link to="/" className="logo">Spiritual Journey</Link>
-                            <div>
-                                <Link to="/prayer">Prayer</Link>
-                                <Link to="/meditation">Meditation</Link>
-                            </div>
                         </nav>
 
                         <Switch>
