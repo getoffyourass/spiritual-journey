@@ -9,7 +9,6 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <!-- Add Babel for JSX -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <!-- Add CSS directly in the HTML -->
     <style>
         body {
             margin: 0;
@@ -29,6 +28,24 @@
 </head>
 <body>
     <div id="root"></div>
-    <script type="text/babel" src="src/index.js"></script>
+    
+    <!-- Add JavaScript directly in HTML -->
+    <script type="text/babel">
+        // Debug logs
+        console.log('Script loaded!');
+        console.log('React version:', React.version);
+
+        // Your App component
+        function App() {
+            return (
+                <div className="app">
+                    <h1>Welcome to Spiritual Journey</h1>
+                    <p>Your path to inner peace begins here.</p>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
 </body>
 </html>
