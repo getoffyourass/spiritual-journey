@@ -163,6 +163,13 @@
             width: 56px;
             height: 56px;
         }
+
+        .daily-card {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
     </style>
 </head>
 <body>
@@ -265,13 +272,13 @@
                             ))}
                         </div>
                         {selectedReligion && (
-                            <>
+                            <div>
                                 <div className="daily-card">
                                     <h3>Your {selectedReligion} Journey</h3>
                                     <p>Daily practices customized for your faith</p>
                                 </div>
                                 <NavigationMenu religion={selectedReligion} />
-                            </>
+                            </div>
                         )}
                     </div>
                 </div>
