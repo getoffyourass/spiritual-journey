@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spiritual Journey</title>
-    <!-- Add React and ReactDOM -->
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <!-- Add Babel for JSX -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Add React Router -->
+    <script src="https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -21,6 +21,17 @@
             padding: 20px;
         }
 
+        nav {
+            background: #4A90E2;
+            padding: 1rem;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
         h1 {
             color: #4A90E2;
         }
@@ -29,19 +40,53 @@
 <body>
     <div id="root"></div>
     
-    <!-- Add JavaScript directly in HTML -->
     <script type="text/babel">
-        // Debug logs
-        console.log('Script loaded!');
-        console.log('React version:', React.version);
+        const { BrowserRouter, Route, Link, Switch } = ReactRouterDOM;
 
-        // Your App component
-        function App() {
+        function Home() {
             return (
                 <div className="app">
                     <h1>Welcome to Spiritual Journey</h1>
                     <p>Your path to inner peace begins here.</p>
                 </div>
+            );
+        }
+
+        function Prayer() {
+            return (
+                <div className="app">
+                    <h1>Daily Prayer</h1>
+                    <p>Find peace through prayer.</p>
+                </div>
+            );
+        }
+
+        function Meditation() {
+            return (
+                <div className="app">
+                    <h1>Meditation</h1>
+                    <p>Clear your mind and find inner peace.</p>
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <BrowserRouter basename="/spiritual-journey">
+                    <div>
+                        <nav>
+                            <Link to="/">Home</Link>
+                            <Link to="/prayer">Prayer</Link>
+                            <Link to="/meditation">Meditation</Link>
+                        </nav>
+
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route path="/prayer" component={Prayer} />
+                            <Route path="/meditation" component={Meditation} />
+                        </Switch>
+                    </div>
+                </BrowserRouter>
             );
         }
 
