@@ -1,0 +1,46 @@
+.meditation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-xl);
+  }
+  
+  .meditation-timer {
+    font-size: 3rem;
+    font-weight: 300;
+    margin: var(--spacing-xl) 0;
+  }
+  
+  .meditation-controls {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+  
+  .meditation-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-size: cover;
+    transition: opacity var(--transition-speed) ease;
+  }
+  
+  .meditation-progress {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+  
+  .meditation-progress-circle {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+  
+  .meditation-ambient-sounds {
+    margin-top: var(--spacing-xl);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+  }
