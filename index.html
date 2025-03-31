@@ -85,38 +85,38 @@
             background: #2563eb;
         }
 
-        /* Testimonials section */
-        .testimonials-section {
-            padding: 3rem 1rem;
-            background: #1f1f1f;
-        }
-
-        .testimonials-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            color: #FECB52;
-        }
-
+        /* Testimonial Carousel */
         .testimonial-carousel {
             display: flex;
-            overflow-x: scroll;
-            gap: 1.5rem;
-            padding: 1rem;
+            overflow: hidden;
+            position: relative;
+            justify-content: center;
+        }
+
+        .testimonial-group {
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
         .testimonial-card {
-            background: #2d2d2d;
-            padding: 1.25rem;
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 1rem;
             border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
-            max-width: 300px;
         }
 
         .testimonial-card:hover {
             transform: translateY(-5px);
+        }
+
+        .bg-blue {
+            background-color: #3b82f6;
+        }
+
+        .bg-gold {
+            background-color: #FECB52;
         }
 
         .testimonial-text {
@@ -127,21 +127,14 @@
 
         .testimonial-author {
             font-weight: 600;
-            color: #FECB52;
+            color: #121212;
             font-size: 0.875rem;
         }
 
-        /* Discovery Section Styles */
-        .discovery-section {
+        /* Bible, Quran, Torah Sections */
+        .sacred-texts-section {
             padding: 2rem 0;
-            background: #1f1f1f;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         .section-title {
@@ -150,14 +143,16 @@
             color: #FECB52;
         }
 
-        .see-all-button {
+        .sacred-text-link {
             color: #3b82f6;
             text-decoration: underline;
-            font-size: 0.875rem;
-            font-weight: 500;
-            background: none;
-            border: none;
+            font-size: 1.125rem;
+            margin: 0.5rem 1rem;
             cursor: pointer;
+        }
+
+        .sacred-text-link:hover {
+            color: #FECB52;
         }
 
         /* Footer */
@@ -227,6 +222,17 @@
     </style>
 </head>
 <body>
+    <!-- Bible, Quran, Torah Section Before Header -->
+    <section class="sacred-texts-section">
+        <div class="container">
+            <h2 class="section-title">Explore Sacred Texts</h2>
+            <a href="#" class="sacred-text-link">Bible</a>
+            <a href="#" class="sacred-text-link">Quran</a>
+            <a href="#" class="sacred-text-link">Torah</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
     <div id="root">
         <section class="hero-section">
             <div class="container">
@@ -247,61 +253,61 @@
         <section class="testimonials-section">
             <h2 class="testimonials-title">What Spiritual Leaders Say About Us</h2>
             <div class="testimonial-carousel">
-                <!-- Buddha Testimonial -->
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"This platform embodies the Middle Way - neither too rigid nor too loose. Perfect for those seeking enlightenment in the digital age."</p>
-                    <p class="testimonial-author">— Buddha</p>
-                </div>
+                <div class="testimonial-group">
+                    <div class="testimonial-card bg-blue">
+                        <div class="p-5">
+                            <div class="flex mb-3">
+                                <span class="text-lg">★</span><span class="text-lg">☆</span><span class="text-lg">☆</span><span class="text-lg">☆</span><span class="text-lg">☆</span>
+                            </div>
+                            <p class="testimonial-text">"I've been trying to stop this app for centuries. Too many people are reading scripture and growing in faith. Bad for business!"</p>
+                            <p class="testimonial-author">— Satan</p>
+                        </div>
+                    </div>
 
-                <!-- Jesus Testimonial -->
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"Truly I tell you, wherever this app is downloaded, the good news will be shared. Much better than my previous distribution method of walking everywhere."</p>
-                    <p class="testimonial-author">— Jesus</p>
-                </div>
+                    <div class="testimonial-card bg-gold">
+                        <div class="p-5">
+                            <div class="flex mb-3">
+                                <span class="text-lg">★</span><span class="text-lg">★</span><span class="text-lg">★</span><span class="text-lg">★</span><span class="text-lg">★</span>
+                            </div>
+                            <p class="testimonial-text">"As someone who walked with Jesus, I must say this app does a remarkable job of making His teachings accessible to all. Though I still prefer scrolls."</p>
+                            <p class="testimonial-author">— Peter</p>
+                        </div>
+                    </div>
 
-                <!-- Krishna Testimonial -->
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"As I mentioned in the Gita, wisdom comes in many forms. This app is like having all 700 verses in your pocket, minus the battlefield context."</p>
-                    <p class="testimonial-author">— Krishna</p>
-                </div>
+                    <div class="testimonial-card bg-blue">
+                        <div class="p-5">
+                            <div class="flex mb-3">
+                                <span class="text-lg">★</span><span class="text-lg">★</span><span class="text-lg">☆</span><span class="text-lg">☆</span><span class="text-lg">☆</span>
+                            </div>
+                            <p class="testimonial-text">"I tried to delete this app multiple times but it keeps resurrecting after three days."</p>
+                            <p class="testimonial-author">— Pontius Pilate</p>
+                        </div>
+                    </div>
 
-                <!-- Muhammad Testimonial -->
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"A beautiful way to spread divine knowledge. Though I still prefer the traditional method of memorization, this works too."</p>
-                    <p class="testimonial-author">— Muhammad</p>
-                </div>
+                    <div class="testimonial-card bg-gold">
+                        <div class="p-5">
+                            <div class="flex mb-3">
+                                <span class="text-lg">★</span><span class="text-lg">★</span><span class="text-lg">★</span><span class="text-lg">★</span><span class="text-lg">★</span>
+                            </div>
+                            <p class="testimonial-text">"This app has more wisdom than all my wives combined. And I had 700 of them!"</p>
+                            <p class="testimonial-author">— King Solomon</p>
+                        </div>
+                    </div>
 
-                <!-- Lao Tzu Testimonial -->
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"The app that can be downloaded is not the eternal app. But it's pretty close."</p>
-                    <p class="testimonial-author">— Lao Tzu</p>
-                </div>
-
-                <!-- Moses Testimonial -->
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"Finally, no need to climb mountains for divine wisdom. Though the cloud storage isn't quite as dramatic as stone tablets."</p>
-                    <p class="testimonial-author">— Moses</p>
+                    <div class="testimonial-card bg-blue">
+                        <div class="p-5">
+                            <div class="flex mb-3">
+                                <span class="text-lg">★</span><span class="text-lg">☆</span><span class="text-lg">☆</span><span class="text-lg">☆</span><span class="text-lg">☆</span>
+                            </div>
+                            <p class="testimonial-text">"Too many rules, not enough loopholes. Would not recommend."</p>
+                            <p class="testimonial-author">— Judas</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <button class="cta-button" onclick="nextTestimonial()">Next Testimonial</button>
         </section>
 
-        <section class="discovery-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Discover Sacred Texts</h2>
-                    <button class="see-all-button">See All</button>
-                </div>
-                <!-- Your existing cards for the sacred texts will go here -->
-            </div>
-        </section>
-
-        <!-- Footer -->
         <footer>
             <p>&copy; 2025 Spiritual Journey. All rights reserved.</p>
             <p>
@@ -317,6 +323,16 @@
             </div>
         </nav> 
     </div>
+
+    <script>
+        let currentIndex = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        
+        function nextTestimonial() {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            document.querySelector('.testimonial-group').style.transform = `translate3d(-${currentIndex * 100}%, 0, 0)`;
+        }
+    </script>
 </body>
 </html>
 
