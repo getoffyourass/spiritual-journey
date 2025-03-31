@@ -189,70 +189,73 @@
             border: none;
             cursor: pointer;
         } 
-           /* Footer */
+          /* Footer Section */
         .footer {
-            background: #111827;
+            background: #1f2937;
             color: white;
-            text-align: center;
             padding: 2rem 1rem;
-            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #fecb52;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">Explore Sacred Texts from All Faiths</h1>
-                <p class="hero-description">Discover daily wisdom from five major religions to guide your spiritual journey.</p>
-                <button class="cta-button">Start Exploring</button>
+    <header class="hero-section">
+        <img src="/path-to-cloud-image.png" alt="Cloud" class="hero-cloud">
+        <div class="hero-content">
+            <h1 class="hero-title">Explore the Sacred Texts</h1>
+            <p class="hero-description">Discover wisdom from five major religions, all in one place.</p>
+            <button class="cta-button">Start Your Journey</button>
+        </div>
+    </header>
+
+    <section class="testimonials-section">
+        <h2 class="testimonials-title">What our spiritual leaders say about us</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card testimonial-yellow">
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">“A beautiful way to access sacred wisdom.”</p>
+                <p class="testimonial-author">- John Doe</p>
             </div>
-        </section>
-        
-        <section class="testimonials-section">
-            <h2 class="testimonials-title">What Our Users Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card testimonial-yellow">
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"A wonderful way to engage with different spiritual traditions!"</p>
-                    <p class="testimonial-author">- Sarah L.</p>
-                </div>
-                <div class="testimonial-card testimonial-red">
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"This app provides daily inspiration and insight across faiths."</p>
-                    <p class="testimonial-author">- James W.</p>
-                </div>
+            <div class="testimonial-card testimonial-red">
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">“Enlightening and inspiring. Highly recommended.”</p>
+                <p class="testimonial-author">- Jane Smith</p>
             </div>
-        </section>
-        
-        <section class="discovery-section">
-            <div class="section-header">
-                <h2 class="section-title">Discover Daily Readings</h2>
-                <button class="see-all-button">See All</button>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card testimonial-yellow">
-                    <p class="testimonial-text">"A verse from the Bible to uplift your day."</p>
-                </div>
-                <div class="testimonial-card testimonial-red">
-                    <p class="testimonial-text">"A passage from the Quran to inspire reflection."</p>
-                </div>
-                <div class="testimonial-card testimonial-yellow">
-                    <p class="testimonial-text">"A teaching from the Bhagavad Gita for wisdom."</p>
-                </div>
-                <div class="testimonial-card testimonial-red">
-                    <p class="testimonial-text">"A sutra from Buddhist texts for peace."</p>
-                </div>
-                <div class="testimonial-card testimonial-yellow">
-                    <p class="testimonial-text">"A verse from the Torah to guide your path."</p>
-                </div>
-            </div>
-        </section>
-    </div>
-    
+        </div>
+    </section>
+
+    <section class="discovery-section">
+        <div class="section-header">
+            <h2 class="section-title">Discover More</h2>
+            <button class="see-all-button">See All</button>
+        </div>
+        <p>Explore texts from Christianity, Islam, Judaism, Hinduism, and Buddhism.</p>
+    </section>
+
     <footer class="footer">
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
         <p>&copy; 2025 Spiritual Journey. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
