@@ -189,73 +189,69 @@
             border: none;
             cursor: pointer;
         } 
-          /* Footer Section */
-        .footer {
-            background: #1f2937;
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
+                /* Discovery Section */
+        .discovery-section {
+            padding: 2rem 0;
+            background: white;
         }
 
-        .footer-links {
+        .section-header {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
         }
 
-        .footer-links a {
-            color: #fecb52;
-            text-decoration: none;
-            font-weight: 500;
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        .footer-links a:hover {
+        .see-all-button {
+            color: #3b82f6;
             text-decoration: underline;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <header class="hero-section">
-        <img src="/path-to-cloud-image.png" alt="Cloud" class="hero-cloud">
-        <div class="hero-content">
-            <h1 class="hero-title">Explore the Sacred Texts</h1>
-            <p class="hero-description">Discover wisdom from five major religions, all in one place.</p>
-            <button class="cta-button">Start Your Journey</button>
-        </div>
-    </header>
-
-    <section class="testimonials-section">
-        <h2 class="testimonials-title">What our spiritual leaders say about us</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card testimonial-yellow">
-                <div class="rating">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">“A beautiful way to access sacred wisdom.”</p>
-                <p class="testimonial-author">- John Doe</p>
+    <div class="container">
+        <section class="hero-section">
+            <img src="/hero-cloud.png" alt="Cloud" class="hero-cloud">
+            <div class="hero-content">
+                <h1 class="hero-title">Spiritual Journey - Explore All Faiths</h1>
+                <p class="hero-description">Discover sacred texts and teachings from multiple religions in one place.</p>
+                <button class="cta-button">Start Exploring</button>
             </div>
-            <div class="testimonial-card testimonial-red">
-                <div class="rating">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">“Enlightening and inspiring. Highly recommended.”</p>
-                <p class="testimonial-author">- Jane Smith</p>
+        </section>
+
+        <section class="testimonials-section">
+            <h2 class="testimonials-title">What our spiritual leaders say about us</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card testimonial-yellow">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"A wonderful way to explore different faiths!"</p>
+                    <p class="testimonial-author">- John Doe</p>
+                </div>
+                <div class="testimonial-card testimonial-red">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"An enlightening experience for seekers of wisdom."</p>
+                    <p class="testimonial-author">- Jane Smith</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="discovery-section">
-        <div class="section-header">
-            <h2 class="section-title">Discover More</h2>
-            <button class="see-all-button">See All</button>
-        </div>
-        <p>Explore texts from Christianity, Islam, Judaism, Hinduism, and Buddhism.</p>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Privacy Policy</a>
-        </div>
-        <p>&copy; 2025 Spiritual Journey. All rights reserved.</p>
-    </footer>
+        <section class="discovery-section">
+            <div class="section-header">
+                <h2 class="section-title">Discover More Teachings</h2>
+                <button class="see-all-button">See All</button>
+            </div>
+            <p>Explore wisdom from various traditions and expand your understanding of spirituality.</p>
+        </section>
+    </div>
 </body>
 </html>
