@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-88X3NEQK6X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-88X3NEQK6X');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spiritual Journey - Explore All Faiths</title>
+    <meta name="description" content="Explore sacred texts from different faiths">
+    <meta name="author" content="Your Name">
+    <meta property="og:image" content="/og-image.png">
+    <link rel="icon" type="image/png" href="/path-to-your-favicon.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-    <script src="https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"></script>
     
     <style>
         /* Base styles */
@@ -17,14 +27,13 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* Utility classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        /* Header section */
+        /* Hero Section */
         .hero-section {
             background: white;
             padding: 2rem 1rem;
@@ -42,21 +51,6 @@
             pointer-events: none;
         }
 
-        .nav-button {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            background: white;
-            color: #4b5563;
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        /* Hero content */
         .hero-content {
             text-align: center;
             max-width: 48rem;
@@ -73,6 +67,21 @@
             font-size: 1.125rem;
             color: #4b5563;
             margin-bottom: 2rem;
+        }
+
+        /* Buttons and Navigation */
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background: white;
+            color: #4b5563;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
         }
 
         .cta-button {
@@ -92,7 +101,8 @@
         .cta-button:hover {
             background: #2563eb;
         }
-                /* Testimonials section */
+
+        /* Testimonials Section */
         .testimonials-section {
             padding: 3rem 1rem;
             background: white;
@@ -150,327 +160,99 @@
             font-weight: 600;
             color: #111827;
             font-size: 0.875rem;
+        }
+
+        /* Discovery Section */
+        .discovery-section {
+            padding: 2rem 0;
+            background: white;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .see-all-button {
+            color: #3b82f6;
+            text-decoration: underline;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: none;
+            border: none;
+            cursor: pointer;
         } 
-        /* Discovery Section Styles */
-.discovery-section {
-    padding: 2rem 0;
-    background: white;
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.see-all-button {
-    color: #3b82f6;
-    text-decoration: underline;
-    font-size: 0.875rem;
-    font-weight: 500;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.cards-slider {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    padding: 0.5rem;
-    scroll-snap-type: x mandatory;
-}
-
-.sacred-card {
-    flex: 0 0 300px;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    scroll-snap-align: start;
-}
-
-.sacred-card:hover {
-    transform: translateY(-5px);
-}
-
-.card-image-container {
-    position: relative;
-    padding-top: 56.25%;
-}
-
-.card-image-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.gradient-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
-}
-
-.card-content {
-    padding: 1rem;
-}
-
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.5rem;
-    color: #6b7280;
-    font-size: 0.875rem;
-}
-
-/* Bottom Navigation */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    border-top: 1px solid #e5e7eb;
-    padding: 0.5rem 0;
-    z-index: 50;
-}
-
-.nav-container {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-    color: #6b7280;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-    width: 20%;
-}
-
-.nav-item.active {
-    color: #3b82f6;
-}
-
-.nav-item svg {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.nav-item span {
-    font-size: 0.75rem;
-}
-
-.nav-item.study {
-    position: relative;
-}
-
-.study-icon {
-    position: absolute;
-    top: -2rem;
-    width: 3.5rem;
-    height: 3.5rem;
-}
-
-.study-icon img {
-    width: 100%;
-    height: 100%;
-    opacity: 0.9;
-}
-
+          /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body>
-    <div id="root">
+    <div class="container">
         <section class="hero-section">
-            <img src="path-to-cloud-image.png" alt="Cloud" class="hero-cloud">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Explore All Sacred Texts</h1>
-                    <p class="hero-description">Your journey through the wisdom of world religions — no filters, no pressure, just pure spiritual exploration.</p>
-                    <button class="cta-button">
-                        Start Your Journey
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
-                        </svg>
-                    </button>
-                </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Explore Sacred Texts from All Faiths</h1>
+                <p class="hero-description">Discover daily wisdom from five major religions to guide your spiritual journey.</p>
+                <button class="cta-button">Start Exploring</button>
             </div>
         </section>
-
-        <section class="testimonials-section">
-            <h2 class="testimonials-title">What Spiritual Leaders Say About Us</h2>
-            <div class="testimonials-grid">
-                <!-- Buddha Testimonial -->
-                <div class="testimonial-card testimonial-yellow">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"This platform embodies the Middle Way - neither too rigid nor too loose. Perfect for those seeking enlightenment in the digital age."</p>
-                    <p class="testimonial-author">— Buddha</p>
-                </div>
-
-                <!-- Jesus Testimonial -->
-                <div class="testimonial-card testimonial-red">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"Truly I tell you, wherever this app is downloaded, the good news will be shared. Much better than my previous distribution method of walking everywhere."</p>
-                    <p class="testimonial-author">— Jesus</p>
-                </div>
-
-                <!-- Krishna Testimonial -->
-                <div class="testimonial-card testimonial-yellow">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"As I mentioned in the Gita, wisdom comes in many forms. This app is like having all 700 verses in your pocket, minus the battlefield context."</p>
-                    <p class="testimonial-author">— Krishna</p>
-                </div>
-
-                <!-- Muhammad Testimonial -->
-                <div class="testimonial-card testimonial-red">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"A beautiful way to spread divine knowledge. Though I still prefer the traditional method of memorization, this works too."</p>
-                    <p class="testimonial-author">— Muhammad</p>
-                </div>
-
-                <!-- Lao Tzu Testimonial -->
-                <div class="testimonial-card testimonial-yellow">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"The app that can be downloaded is not the eternal app. But it's pretty close."</p>
-                    <p class="testimonial-author">— Lao Tzu</p>
-                </div>
-
-                <!-- Moses Testimonial -->
-                <div class="testimonial-card testimonial-red">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"Finally, no need to climb mountains for divine wisdom. Though the cloud storage isn't quite as dramatic as stone tablets."</p>
-                    <p class="testimonial-author">— Moses</p>
-                </div>
-            </div>
-        </section> 
-                <!-- Discovery Section -->
-        <section class="discovery-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Discover Sacred Texts</h2>
-                    <button class="see-all-button">See All</button>
-                </div>
-                <div class="cards-slider">
-                    <!-- Christianity Card -->
-                    <div class="sacred-card">
-                        <div class="card-image-container">
-                            <img src="path-to-bible-image.jpg" alt="Bible Study">
-                            <div class="gradient-overlay"></div>
-                        </div>
-                        <div class="card-content">
-                            <h3>The Bible</h3>
-                            <p>Explore the Old and New Testament teachings</p>
-                            <div class="card-footer">
-                                <span>10 min read</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Islam Card -->
-                    <div class="sacred-card">
-                        <div class="card-image-container">
-                            <img src="path-to-quran-image.jpg" alt="Quran Study">
-                            <div class="gradient-overlay"></div>
-                        </div>
-                        <div class="card-content">
-                            <h3>The Quran</h3>
-                            <p>Discover Islamic wisdom and teachings</p>
-                            <div class="card-footer">
-                                <span>10 min read</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Buddhism Card -->
-                    <div class="sacred-card">
-                        <div class="card-image-container">
-                            <img src="path-to-buddhism-image.jpg" alt="Buddhist Texts">
-                            <div class="gradient-overlay"></div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Buddhist Sutras</h3>
-                            <p>Learn from the Buddha's teachings</p>
-                            <div class="card-footer">
-                                <span>10 min read</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Bottom Navigation Bar -->
-        <nav class="bottom-nav">
-            <div class="nav-container">
-                <button class="nav-item active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                    <span>Home</span>
-                </button>
-                
-                <button class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-                    </svg>
-                    <span>Discover</span>
-                </button>
-
-                <button class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <span>Chat</span>
-                </button>
-
-                <button class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <span>Texts</span>
-                </button>
-
-                <button class="nav-item study">
-                    <div class="study-icon">
-                        <img src="path-to-study-icon.png" alt="Study">
-                    </div>
-                    <span>Study</span>
-                </button>
-            </div>
-        </nav> 
         
+        <section class="testimonials-section">
+            <h2 class="testimonials-title">What Our Users Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card testimonial-yellow">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"A wonderful way to engage with different spiritual traditions!"</p>
+                    <p class="testimonial-author">- Sarah L.</p>
+                </div>
+                <div class="testimonial-card testimonial-red">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"This app provides daily inspiration and insight across faiths."</p>
+                    <p class="testimonial-author">- James W.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="discovery-section">
+            <div class="section-header">
+                <h2 class="section-title">Discover Daily Readings</h2>
+                <button class="see-all-button">See All</button>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card testimonial-yellow">
+                    <p class="testimonial-text">"A verse from the Bible to uplift your day."</p>
+                </div>
+                <div class="testimonial-card testimonial-red">
+                    <p class="testimonial-text">"A passage from the Quran to inspire reflection."</p>
+                </div>
+                <div class="testimonial-card testimonial-yellow">
+                    <p class="testimonial-text">"A teaching from the Bhagavad Gita for wisdom."</p>
+                </div>
+                <div class="testimonial-card testimonial-red">
+                    <p class="testimonial-text">"A sutra from Buddhist texts for peace."</p>
+                </div>
+                <div class="testimonial-card testimonial-yellow">
+                    <p class="testimonial-text">"A verse from the Torah to guide your path."</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Spiritual Journey. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
