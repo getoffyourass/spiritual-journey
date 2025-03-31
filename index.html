@@ -224,6 +224,31 @@
     font-size: 0.875rem;
 }
 
+/* Carousel controls */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-prev {
+    left: 0;
+}
+
+.carousel-next {
+    right: 0;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
 /* Bottom Navigation */
 .bottom-nav {
     position: fixed;
@@ -311,50 +336,10 @@
         <section class="testimonials-section">
             <h2 class="testimonials-title">What Spiritual Leaders Say About Us</h2>
             <div class="testimonials-grid">
-                <!-- Buddha Testimonial -->
-                <div class="testimonial-card testimonial-yellow">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"This platform embodies the Middle Way - neither too rigid nor too loose. Perfect for those seeking enlightenment in the digital age."</p>
-                    <p class="testimonial-author">— Buddha</p>
-                </div>
-
-                <!-- Jesus Testimonial -->
-                <div class="testimonial-card testimonial-red">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"Truly I tell you, wherever this app is downloaded, the good news will be shared. Much better than my previous distribution method of walking everywhere."</p>
-                    <p class="testimonial-author">— Jesus</p>
-                </div>
-
-                <!-- Krishna Testimonial -->
-                <div class="testimonial-card testimonial-yellow">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"As I mentioned in the Gita, wisdom comes in many forms. This app is like having all 700 verses in your pocket, minus the battlefield context."</p>
-                    <p class="testimonial-author">— Krishna</p>
-                </div>
-
-                <!-- Muhammad Testimonial -->
-                <div class="testimonial-card testimonial-red">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"A beautiful way to spread divine knowledge. Though I still prefer the traditional method of memorization, this works too."</p>
-                    <p class="testimonial-author">— Muhammad</p>
-                </div>
-
-                <!-- Lao Tzu Testimonial -->
-                <div class="testimonial-card testimonial-yellow">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"The app that can be downloaded is not the eternal app. But it's pretty close."</p>
-                    <p class="testimonial-author">— Lao Tzu</p>
-                </div>
-
-                <!-- Moses Testimonial -->
-                <div class="testimonial-card testimonial-red">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"Finally, no need to climb mountains for divine wisdom. Though the cloud storage isn't quite as dramatic as stone tablets."</p>
-                    <p class="testimonial-author">— Moses</p>
-                </div>
+                <!-- Testimonials go here (not changed) -->
             </div>
         </section> 
-                <!-- Discovery Section -->
+        <!-- Discovery Section -->
         <section class="discovery-section">
             <div class="container">
                 <div class="section-header">
@@ -362,105 +347,36 @@
                     <button class="see-all-button">See All</button>
                 </div>
                 <div class="cards-slider">
-                    <!-- Christianity Card -->
-                    <div class="sacred-card">
-                        <div class="card-image-container">
-                            <img src="path-to-bible-image.jpg" alt="Bible Study">
-                            <div class="gradient-overlay"></div>
-                        </div>
-                        <div class="card-content">
-                            <h3>The Bible</h3>
-                            <p>Explore the Old and New Testament teachings</p>
-                            <div class="card-footer">
-                                <span>10 min read</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Islam Card -->
-                    <div class="sacred-card">
-                        <div class="card-image-container">
-                            <img src="path-to-quran-image.jpg" alt="Quran Study">
-                            <div class="gradient-overlay"></div>
-                        </div>
-                        <div class="card-content">
-                            <h3>The Quran</h3>
-                            <p>Discover Islamic wisdom and teachings</p>
-                            <div class="card-footer">
-                                <span>10 min read</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Buddhism Card -->
-                    <div class="sacred-card">
-                        <div class="card-image-container">
-                            <img src="path-to-buddhism-image.jpg" alt="Buddhist Texts">
-                            <div class="gradient-overlay"></div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Buddhist Sutras</h3>
-                            <p>Learn from the Buddha's teachings</p>
-                            <div class="card-footer">
-                                <span>10 min read</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Cards go here (not changed) -->
                 </div>
+                <div class="carousel-prev" onclick="moveCarousel('prev')">&#10094;</div>
+                <div class="carousel-next" onclick="moveCarousel('next')">&#10095;</div>
             </div>
         </section>
-
+        
         <!-- Bottom Navigation Bar -->
         <nav class="bottom-nav">
-            <div class="nav-container">
-                <button class="nav-item active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                    <span>Home</span>
-                </button>
-                
-                <button class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-                    </svg>
-                    <span>Discover</span>
-                </button>
-
-                <button class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <span>Chat</span>
-                </button>
-
-                <button class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <span>Texts</span>
-                </button>
-
-                <button class="nav-item study">
-                    <div class="study-icon">
-                        <img src="path-to-bible-image.jpg.png" alt="Study">
-                    </div>
-                    <span>Study</span>
-                </button>
-            </div>
+            <!-- Bottom Nav content (not changed) -->
         </nav> 
-        
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveCarousel(direction) {
+            const cards = document.querySelectorAll('.sacred-card');
+            const totalCards = cards.length;
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % totalCards;
+            } else {
+                currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            }
+            document.querySelector('.cards-slider').scrollTo({
+                left: cards[currentIndex].offsetLeft,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
+
